@@ -1,0 +1,11 @@
+Shows the amount of disk space used and available on Linux file systems.
+df -h
+
+Display the amount of disk space used by the specified files and for each subdirectory.
+du  -h
+
+show largest 10 files
+ind / -printf '%s %p\n'| sort -nr | head -10
+
+search for the largest 5 files that bigger than 100M
+find / -xdev -type f -size +100M -exec ls -la {} \; | sort -nk 5 
