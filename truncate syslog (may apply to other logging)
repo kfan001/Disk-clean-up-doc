@@ -1,0 +1,13 @@
+Truncating the syslog files 
+truncate -s <size> /var/log/*log
+
+If size (-s) is 0, it will empty the log file but the file does not need to be recreated by syslog.  
+To cut partial size, issue the following command
+
+truncate -s 20G /var/log/*log
+
+Or use another command to delete all lines from a certain line, say 1000
+sed -i '1000,$ d'  /var/log/*log
+
+For syslog, to make the clean-up effective, restart syslog by
+sudo service rsyslog restart
